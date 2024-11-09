@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PCOS Prediction Page using Machine Learning">
+    <title>Prediction | PCOS Prediction & Detection</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul class="nav-left">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/prediction">Prediction</a></li>
+                </ul>
+                <div class="logo">
+                    <img src="images/Fem.svg" alt="FemCare Logo">
+                </div>
+                <ul class="nav-right">
+                    <li><a href="/navigating">Navigating</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section" id="prediction">
+        <div class="container">
+            <h2>PCOS Prediction</h2>
+
+            <!-- New Informational Section -->
+            <div class="info-section">
+                <h3>How to Use the PCOS Prediction Form</h3>
+                <p>
+                    To detect the likelihood of PCOS using our machine learning (ML) and deep learning (DL) models, we require you to fill in
+                    the following form with accurate personal information and symptom details. Here's how each section contributes to the prediction:
+                </p>
+                <ul>
+                    <li><strong>Personal Information:</strong> Basic data like age, height, and weight help calculate your BMI, which is a significant factor in predicting PCOS.</li>
+                    <li><strong>Symptoms:</strong> Inputting your symptoms like irregular cycles, skin darkening, excessive hair growth, and pimples gives our model vital information about hormonal imbalances that are commonly associated with PCOS.</li>
+                    <li><strong>Body Measurements:</strong> Waist and hip measurements allow us to calculate the Waist-to-Hip Ratio (WHR), which is another indicator for PCOS-related conditions.</li>
+                    <li><strong>Ultrasound Image:</strong> If you have an ultrasound image, uploading it (optional) helps our model analyze ovarian structures, which is another common sign of PCOS.</li>
+                </ul>
+                <p>
+                    Once all fields are filled out, click the "Submit Prediction" button. Our ML and DL models will process the data, analyze patterns, 
+                    and provide you with a prediction along with a confidence score. Please ensure the information provided is accurate for the best results.
+                </p>
+            </div>
+            <!-- End of Information Section -->
+
+            <div class="prediction-form-section">
+                <h2>PCOS Prediction Form</h2>
+                <form id="predictForm">
+                    <!-- Personal Information Section -->
+                    <div class="form-group">
+                        <label for="age">Age (years)</label>
+                        <input type="number" id="age" name="input" required min="10" max="100" title="Please enter a valid age">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="height">Height (cm)</label>
+                        <input type="number" id="height" name="input" required min="50" max="250" step="0.1" title="Please enter a valid height in centimeters" oninput="calculateBMI()">
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="weight">Weight (Kg)</label>
+                        <input type="number" id="weight" name="input" step="0.1" required min="30" max="200" title="Please enter a valid weight in kilograms" oninput="calculateBMI()">
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <label for="weight Gain">Weight Gain</label>
+                        <select id="weight_gain" name="input" required>
+                            <option value="">Select</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="bmi">BMI</label>
+                        <input type="number" id="bmi" name="input" step="0.1" readonly>
+                    </div>
+            
+                    <!-- Symptoms Section -->
+                    <div class="form-group">
+                        <label for="cycle">Cycle (R/I)</label>
+                        <select id="cycle" name="input" required>
+                            <option value="">Select</option>
+                            <option value="R">Regular</option>
+                            <option value="I">Irregular</option>
+                        </select>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="cycle-length">Cycle length (days)</label>
+                        <input type="number" id="cycle-length" name="input" required min="1" max="40" title="Please enter a valid number of days">
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="skin-darkening">Skin darkening (Y/N)</label>
+                        <select id="skin-darkening" name="input" required>
+                            <option value="">Select</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="hair-growth">Hair growth (Y/N)</label>
+                        <select id="hair-growth" name="input" required>
+                            <option value="">Select</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="pimples">Pimples (Y/N)</label>
+                        <select id="pimples" name="input" required>
+                            <option value="">Select</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="hair-loss">Hair loss (Y/N)</label>
+                        <select id="hair-loss" name="input" required>
+                            <option value="">Select</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                    </div>
+            
+                    <!-- Body Measurements Section -->
+                    <div class="form-group">
+                        <label for="waist">Waist (inches)</label>
+                        <input type="number" id="waist" name="input" step="0.1" required min="20" max="60" title="Please enter a valid waist size in inches">
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="hip">Hip (inches)</label>
+                        <input type="number" id="hip" name="input" step="0.1" required min="20" max="70" title="Please enter a valid hip size in inches">
+                    </div>
+            
+                    <!-- Ultrasound Image Upload -->
+                    <!-- <div class="form-group">
+                        <label for="ultrasound">Upload Ultrasound Image (optional)</label>
+                        <input type="file" id="ultrasound" name="ultrasound_image" accept="image/*">
+                    </div> -->
+            
+                    <!-- Submit Button -->
+                    <button type="submit" class="cta-btn">Submit Prediction</button>
+                </form>
+                <h2 id="result"></h2>
+                
+                <form action="/upload" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="ultrasound">Upload Ultrasound Image (optional)</label>
+                        <input type="file" id="ultrasound" name="ultrasound_image" accept="image/*">
+                    </div>
+            
+                    <button type="submit" class="cta-btn">Submit Prediction</button>    
+                    </div>
+                </form>
+            </div>
+
+            <!-- JavaScript for BMI Calculation -->
+            <script>
+                function calculateBMI() {
+                    var weight = document.getElementById("weight").value;
+                    var height = document.getElementById("height").value;
+                    
+                    if (weight > 0 && height > 0) {
+                        var heightInMeters = height / 100; // Convert height to meters
+                        var bmi = weight / (heightInMeters * heightInMeters);
+                        document.getElementById("bmi").value = bmi.toFixed(1); // Display BMI with one decimal
+                    } else {
+                        document.getElementById("bmi").value = ""; // Clear BMI if inputs are invalid
+                    }
+                }
+            </script>
+
+        </div>
+    </section>
+    <p style="color: red; text-align-last: center; font-size: 20px;">*The results are based on highly trained model, we advise you to consult a medical practitioner after obtaining the results.</p>
+
+
+    <footer>
+        <div class="container">
+            <div class="social-media">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>Contact us: info@pcosprediction.com</p>
+            <p>&copy; 2024 PCOS Prediction & Detection. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+<script type="text/javascript" src="/js/prediction.js"></script> 
+
+</html>

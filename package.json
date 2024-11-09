@@ -1,0 +1,17 @@
+{
+  "name": "pcos",
+  "version": "1.0.0",
+  "description": "My_capstone_project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dhruv_Aggarwal",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "multer": "^1.4.5-lts.1"
+  }
+}

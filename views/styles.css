@@ -1,0 +1,832 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fef5f5; /* Very light soft pink background */
+    color: #000000;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #3f51b5;
+    padding: 12px 0;
+    border-bottom-style: outset;
+    border-bottom: #000000 solid 2px;
+    font-size: 21px;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Allows absolute positioning of the logo */
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-left {
+    margin-right: auto; /* Align left nav to the far left */
+}
+
+.nav-right {
+    margin-left: auto; /* Align right nav to the far right */
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Center the logo horizontally */
+    text-align: center;
+}
+
+.logo img {
+    max-width: 100px; /* Adjust as needed */
+}
+
+.nav-left li, .nav-right li {
+    margin: 0 15px;
+}
+
+header ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+header ul li a:hover {
+    background-color: #f6a7b4; /* Slightly deeper pink on hover */
+    border-radius: 5px;
+    
+}
+
+
+.logo img {
+    width: 150px; /* Adjust the size of the logo */
+    height: auto;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 70px 10px;
+    background-color: #f06292; /* Soft pink */
+    color: white;
+    flex-wrap: wrap; /* Ensure responsiveness */
+}
+
+.hero-info {
+
+    max-width: 50%; /* Limit to half of the container */
+    padding-right: 20px; /* Space between text and image */
+}
+
+.hero-info h2 {
+    color: #000000;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-info p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+
+    height: 350px;
+    width: 350px;
+    max-height: 60%;
+    max-width: 40%; /* Limit to half of the container */
+}
+
+.hero-image img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-info,
+    .hero-image {
+        max-width: 100%; /* Full width on smaller screens */
+        padding-right: 0; /* Remove extra padding */
+    }
+
+    .hero-image img {
+        max-width: 90%; /* Adjust size for smaller screens */
+    }
+}
+
+
+.cta-btn {
+    background-color: #ffffff; /* Soft pink for call-to-action button */
+    color: rgb(255, 0, 0);
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #f48fb1; /* Lighter soft pink on hover */
+}
+
+.section {
+    padding: 40px 20px;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #f76c85; /* Soft pink for headings */
+    margin-bottom: 20px;    
+}
+
+.graphics img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* PCOS Section */
+/* PCOS Section */
+#about-pcos {
+    background-color: #fce4ec;
+    padding: 60px 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin: 40px 0;
+}
+
+#about-pcos h2 {
+    text-align: center;
+    color: #3f51b5;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 30px;
+    font-size: 2.4rem;
+}
+
+.pcos-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.pcos-text {
+    flex: 1;
+    color: #555;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.pcos-text h3 {
+    color: #f06292;
+    margin-top: 20px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pcos-text ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+    display: none; /* Initially hidden for toggle functionality */
+}
+
+.pcos-text ul li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    position: relative;
+}
+
+.pcos-text ul li i {
+    color: #3f51b5;
+    margin-right: 10px;
+}
+
+.pcos-graphic {
+    flex: 1;
+    text-align: center;
+}
+
+/* .pcos-graphic img { */
+    /* max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+ }  */
+
+/* Tooltip for additional information */
+.tooltip {
+    visibility: hidden;
+    background-color: #3f51b5;
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.pcos-text ul li:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Toggle Section Styling */
+.toggle-section {
+    display: none;
+}
+
+.toggle-section.active {
+    display: block;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .pcos-content {
+        flex-direction: column;
+    }
+}
+
+
+
+
+/* Symptom Checker Section */
+.symptoms-section {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.symptoms-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.symptom {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.symptom img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.symptom p {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.symptom:active {
+    transform: scale(1.1);
+}
+
+.drop-zone-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.drop-zone {
+    width: 45%;
+    min-height: 200px;
+    background-color: #f0f0f0;
+    border: 2px dashed #3f51b5;
+    padding: 10px;
+    position: relative;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.drop-zone h3 {
+    width: 100%;
+    margin-bottom: 10px;
+    color: #3f51b5;
+}
+
+.drop-zone .symptom {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+
+.drop-zone:hover {
+    background-color: #e0e0e0;
+}
+
+button.cta-btn {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.cta-btn:hover {
+    background-color: #303f9f;
+}
+
+#early-detection h2 {
+    text-align: center;
+    color: #3f51b5;
+    font-family: 'Poppins', sans-serif;
+}
+
+#early-detection p {
+    font-size: 1.1rem;
+    color: #555;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.detection-benefits {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.benefit {
+    width: 30%;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.benefit img {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.benefit p {
+    font-size: 1rem;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+.graphics {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.graphics img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+
+
+/* .form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #f76c85; /* Soft pink for labels 
+}*/
+/* General Form Styling */
+/* Prediction Form Section Styling */
+.prediction-form-section {
+    background-color: #fce4ec;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 800px; /* Increased width */
+    margin: 0 auto;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border: 2px solid #f8bbd0; /* Softer border */
+}
+
+/* Heading Styling */
+.prediction-form-section h2 {
+    text-align: center;
+    color: #3f51b5;
+    margin-bottom: 25px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Form Layout Styling */
+form {
+    display: flex;
+    flex-wrap: wrap; /* Flex-wrap allows elements to be aligned better */
+    justify-content: space-between; /* Added to spread out the fields */
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+    width: 48%; /* Adjusted width to align in two columns */
+}
+
+/* Form Labels */
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #3f51b5;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Input and Select Field Styling */
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #fff;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Focus Effect */
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #f06292;
+    outline: none;
+}
+
+/* Submit Button Styling */
+.cta-btn {
+    background-color: #3f51b5;
+    color: white;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 20px;
+}
+
+/* Hover Effect for Button */
+.cta-btn:hover {
+    background-color: #303f9f;
+}
+
+/* Informational Section Styling */
+.info-section {
+    background-color: #f9f9fc;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    border: 1px solid #e1e1e6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    color: #4b4b5e;
+}
+
+/* Info Section Headings */
+.info-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    color: #2a2a3c;
+}
+
+/* Info Section Paragraph */
+.info-section p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #4b4b5e;
+}
+
+/* Info Section Lists */
+.info-section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: #4b4b5e;
+}
+
+.info-section ul li {
+    margin-bottom: 10px;
+}
+
+/* Adjusting File Input Padding */
+form input[type="file"] {
+    padding: 8px;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .form-group {
+        width: 100%; /* Stack inputs on smaller screens */
+    }
+    
+    .info-section {
+        padding: 15px;
+    }
+}
+
+footer {
+    background-color: #f06292; /* Very soft pink background for footer */
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .social-media a {
+    color: #333;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+footer .social-media a:hover {
+    color: #210003; /* Soft pink on hover */
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+
+/*Navigating through PCOS Section */
+/* General Section Styling */
+/* General Section Styling */
+.navigation-section {
+    background-color: #fce4ec;
+    padding: 60px 30px;
+    border-radius: 15px;
+    max-width: 1100px;
+    margin: 40px auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.navigation-section h2 {
+    color: #3f51b5;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+}
+
+.navigation-section p {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    color: #555;
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Card Container */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    width: calc(33% - 20px);
+    text-align: center;
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    color: #f06292;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+}
+
+.card p {
+    color: #777;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card .cta-btn {
+    background-color: #3f51b5;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.card .cta-btn:hover {
+    background-color: #303f9f;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .card {
+        width: 100%;
+    }
+
+    .navigation-section {
+        padding: 40px 20px;
+    }
+
+    .navigation-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .navigation-section p {
+        font-size: 1.1rem;
+    }
+}
+
+
+/* Contact Us Page */
+#contact-us h2 {
+    text-align: center;
+    color: #3f51b5;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#contact-us p {
+    font-size: 1.1rem;
+    text-align: center;
+    color: #555;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 30px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+
+.contact-item {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-item i {
+    font-size: 2rem;
+    color: #f06292;
+    margin-bottom: 10px;
+}
+
+.contact-item p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.contact-item a {
+    color: #3f51b5;
+    text-decoration: none;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fce4ec;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #3f51b5;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #fff;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #f06292;
+    outline: none;
+}
+
+.cta-btn {
+    background-color: #3f51b5;
+    color: white;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cta-btn:hover {
+    background-color: #303f9f;
+}
+
+/* Social Media Links */
+.social-media {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.social-media a {
+    color: #3f51b5;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #f06292;
+}
+

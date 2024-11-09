@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Predicting and Detecting PCOS in Young Women using Machine Learning Techniques">
+    <title>Home | PCOS Prediction & Detection</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul class="nav-left">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/prediction">Prediction</a></li>
+                </ul>
+                <div class="logo">
+                    <img src="images/Fem.svg" alt="FemCare Logo">
+                </div>
+                <ul class="nav-right">
+                    <li><a href="/navigating">Navigating</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="hero">
+            <div class="hero-info">
+                <h2>Empowering Women through Early Detection of PCOS</h2>
+                <p>Using advanced machine learning techniques to predict and detect PCOS in young women.</p>
+                <a href="/navigating" class="cta-btn">Learn More</a>
+            </div>
+            <div class="hero-image">
+                <img src="images/image1.svg" alt="Empowerment of Women">
+            </div>
+        </div>
+
+    </section>
+
+    <section class="section" id="about-pcos">
+        <div class="container">
+            <h2>Understanding PCOS</h2>
+            <div class="pcos-content">
+                <div class="pcos-text">
+                    <p><strong>Polycystic Ovary Syndrome (PCOS)</strong> is a common hormonal disorder that affects
+                        women of reproductive age. It can cause a range of symptoms such as irregular periods, excessive
+                        androgen levels (male hormones), and polycystic ovaries. Understanding the condition and taking
+                        proactive steps can help in managing its symptoms and long-term effects.</p>
+
+                    <!-- Toggleable Section for Symptoms -->
+                    <h3 class="toggle-btn" onclick="toggleSection('symptoms')">Symptoms of PCOS <i
+                            class="fas fa-chevron-down"></i></h3>
+                    <ul id="symptoms" class="toggle-section">
+                        <li><i class="fas fa-check-circle"></i> Irregular menstrual cycles</li>
+                        <li><i class="fas fa-check-circle"></i> Excessive hair growth (hirsutism)</li>
+                        <li><i class="fas fa-check-circle"></i> Weight gain or difficulty losing weight</li>
+                        <li><i class="fas fa-check-circle"></i> Acne and oily skin</li>
+                        <li><i class="fas fa-check-circle"></i> Thinning hair or hair loss</li>
+                        <li><i class="fas fa-check-circle"></i> Infertility or difficulty conceiving</li>
+                    </ul>
+
+                    <!-- Toggleable Section for Health Risks -->
+                    <h3 class="toggle-btn" onclick="toggleSection('health-risks')">Long-term Health Risks <i
+                            class="fas fa-chevron-down"></i></h3>
+                    <ul id="health-risks" class="toggle-section">
+                        <li><i class="fas fa-exclamation-triangle"></i> Type 2 diabetes <span class="tooltip">Caused by
+                                insulin resistance associated with PCOS.</span></li>
+                        <li><i class="fas fa-exclamation-triangle"></i> High blood pressure <span class="tooltip">Linked
+                                to obesity and hormonal imbalance.</span></li>
+                        <li><i class="fas fa-exclamation-triangle"></i> Heart disease <span class="tooltip">Higher risk
+                                due to metabolic issues.</span></li>
+                        <li><i class="fas fa-exclamation-triangle"></i> Endometrial cancer <span
+                                class="tooltip">Resulting from irregular periods and hormonal imbalance.</span></li>
+                    </ul>
+                </div>
+                <div class="pcos-graphic">
+                    <img src="images/PCOS Symptoms.svg" alt="PCOS Overview Graphic">
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function toggleSection(sectionId) {
+                var section = document.getElementById(sectionId);
+                section.classList.toggle('active');
+            }
+        </script>
+
+    </section>
+
+
+
+    <div class="symptoms-section">
+        <h2>PCOS Symptom Checker</h2>
+        <p>Drag and drop the symptoms into the correct categories to see how they relate to PCOS. Learn while having
+            fun!</p>
+
+        <div class="drop-zone-container">
+            <div class="drop-zone" id="physical-symptoms">
+                <h3>Physical Symptoms</h3>
+            </div>
+            <div class="drop-zone" id="hormonal-symptoms">
+                <h3>Hormonal Symptoms</h3>
+            </div>
+        </div>
+
+        <div class="symptoms-container">
+            <div class="symptom" draggable="true" data-type="physical">
+                <img src="images/acne.png" alt="Acne" draggable="false">
+                <p id="s1">Acne</p>
+            </div>
+            <div class="symptom" draggable="true" data-type="physical">
+                <img src="images/Hair Loss.svg" alt="Hair Loss" draggable="false">
+                <p id="s2">Hair Loss</p>
+            </div>
+            <div class="symptom" draggable="true" data-type="physical">
+                <img src="images/Weight Gain.svg" alt="Weight Gain" draggable="false">
+                <p id="s3">Weight Gain</p>
+            </div>
+            <div class="symptom" draggable="true" data-type="physical">
+                <img src="images/Fatigue.svg" alt="Fatigue" draggable="false">
+                <p id="s4">Fatigue</p>
+            </div>
+            <div class="symptom" draggable="true" data-type="physical">
+                <img src="images/Irregular period.svg" alt="Irregular Cycle" draggable="false">
+                <p id="s5">Irregular Cycle</p>
+            </div>
+            <div class="symptom" draggable="true" data-type="physical">
+                <img src="images/Skin Darkening.svg" alt="Skin Darkening" draggable="false">
+                <p id="s6">Skin Darkening</p>
+            </div>
+            <div class="symptom" draggable="true" data-type="hormonal">
+                <img src="images/Mood swings.svg" alt="Mood Swings" draggable="false">
+                <p id="s7">Mood Swings</p>
+            </div>
+            <div class="symptom" draggable="true" data-type="hormonal">
+                <img src="images/Cravings.svg" alt="Cravings" draggable="false">
+                <p id="s8">Cravings</p>
+            </div>
+            <div class="symptom" draggable="true" data-type="hormonal">
+                <img src="images/Infertility.svg" alt="Infertility" draggable="false">
+                <p id="s9">Infertility</p>
+            </div>
+            <div class="symptom" draggable="true" data-type="hormonal">
+                <img src="images/Facial Hair.svg" alt="Excess Facial Hair" draggable="false">
+                <p id="s10">Excess Facial Hair</p>
+            </div>
+        </div>
+
+        <button class="cta-btn" id="check-answers">Check Your Answers</button>
+        <button class="cta-btn" id="reset-game">Reset</button>
+        <p id="feedback-message" style="margin-top: 10px;"></p>
+
+    </div>
+
+    
+
+
+    <section class="section" id="our-approach">
+        <div class="container">
+            <h2>Our Approach to Predicting PCOS with Machine Learning</h2>
+            <p>
+                We utilize advanced machine learning techniques to predict and detect Polycystic Ovary Syndrome (PCOS)
+                based on
+                a variety of symptoms and medical history. By analyzing data patterns and training our model on
+                real-world cases,
+                we provide an accurate and early prediction tool that can assist in proper diagnosis and management of
+                PCOS.
+            </p>
+            <div class="interactive-content">
+                <div class="approach-steps">
+                    <div class="step">
+                        <h3>1. Data Collection</h3>
+                        <p>We gather a wide range of health-related data from users including medical history, symptoms,
+                            lifestyle factors, and more.</p>
+                        <img src="images/Data Collection.svg" alt="Data Collection" />
+                    </div>
+                    <div class="step">
+                        <h3>2. Feature Engineering</h3>
+                        <p>Our team carefully selects and processes the most relevant features from the collected data
+                            to enhance the predictive accuracy of our models.</p>
+                        <img src="images/Feature Engineering.svg" alt="Feature Engineering" />
+                    </div>
+                    <div class="step">
+                        <h3>3. Model Training</h3>
+                        <p>We train multiple machine learning models using the curated data to find the best-performing
+                            model for predicting PCOS.</p>
+                        <img src="images/Model Training.svg" alt="Model Training" />
+                    </div>
+                    <div class="step">
+                        <h3>4. Prediction and Analysis</h3>
+                        <p>Our model analyzes the input data and provides predictions along with confidence scores to
+                            help users understand their health better.</p>
+                        <img src="images/Prediction and Analysis.svg" alt="Prediction and Analysis" />
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-section">
+                <h3>Interactive Quiz: Test Your Knowledge</h3>
+                <p>How much do you know about machine learning and PCOS? Take this short quiz to find out!</p>
+                <div class="quiz">
+                    <div class="quiz-question">
+                        <p>What is the main goal of machine learning in healthcare?</p>
+                        <button class="quiz-answer" data-correct="true">To predict diseases and improve
+                            diagnosis.</button>
+                        <button class="quiz-answer">To replace doctors.</button>
+                    </div>
+                    <div class="quiz-question">
+                        <p>Which data is most important for predicting PCOS?</p>
+                        <button class="quiz-answer">Only symptoms.</button>
+                        <button class="quiz-answer" data-correct="true">A combination of symptoms, lifestyle, and
+                            medical history.</button>
+                    </div>
+                </div>
+                <div id="quiz-feedback"></div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <style>
+        #our-approach {
+            padding: 40px 0;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        .approach-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            width: 45%;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .step img {
+            max-width: 80px;
+            margin-bottom: 15px;
+        }
+
+        .quiz-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #e0f7fa;
+            border-radius: 10px;
+        }
+
+        .quiz-question {
+            margin: 20px 0;
+        }
+
+        .quiz-answer {
+            display: block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            background-color: #3f51b5;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .quiz-answer:hover {
+            background-color: #303f9f;
+        }
+
+        #quiz-feedback {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+
+<section class="section" id="early-detection">
+    <div class="container">
+        <h2>Why Early Detection Matters</h2>
+        <p>Early detection of PCOS can make all the difference! It allows women to manage symptoms before they worsen, making lifestyle adjustments and seeking treatments that prevent long-term complications like infertility, diabetes, and heart disease. The earlier you understand your body, the better you can care for it. 💖</p>
+        <div class="detection-benefits">
+            <div class="benefit">
+                <img src="images/Future.svg" alt="Health Benefits Icon">
+                <p><strong>Healthier Future:</strong> Early detection helps prevent serious health risks and keeps your hormones balanced, ensuring a healthier tomorrow.</p>
+            </div>
+            <div class="benefit">
+                <img src="images/Emotion.svg" alt="Support Icon">
+                <p><strong>Emotional Well-Being:</strong> Understanding your symptoms early on can reduce anxiety and help you feel more in control. You’re not alone! 💪</p>
+            </div>
+            <div class="benefit">
+                <img src="images/treatment.svg" alt="Treatment Icon">
+                <p><strong>Effective Treatment:</strong> The sooner PCOS is diagnosed, the more treatment options are available, allowing you to live your best life.</p>
+            </div>
+        </div>
+        <p>Our tool is designed to guide you towards early diagnosis and empower you with the knowledge and support you need. 🩷</p>
+        <div class="graphics">
+            <img src="images/last.svg" alt="Early Detection Graphic">
+        </div>
+    </div>
+</section>
+
+
+    <footer>
+        <div class="container">
+            <div class="social-media">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>Contact us: info@pcosprediction.com</p>
+            <p>&copy; 2024 PCOS Prediction & Detection. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+<script type="text/javascript" src="/js/index.js"></script> 
+
+</html>

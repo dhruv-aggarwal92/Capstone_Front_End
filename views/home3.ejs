@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision Tree Prediction</title>
+</head>
+<body>
+    <h1>Predict with Decision Tree Model</h1>
+    <form id="predictForm">
+        <input type="text" name="input" placeholder="Enter input value 1">
+        <input type="text" name="input" placeholder="Enter input value 2">
+        <input type="text" name="input" placeholder="Enter input value 3">
+        <input type="text" name="input" placeholder="Enter input value 1">
+        <input type="text" name="input" placeholder="Enter input value 2">
+        <input type="text" name="input" placeholder="Enter input value 3">
+        <input type="text" name="input" placeholder="Enter input value 1">
+        <input type="text" name="input" placeholder="Enter input value 2">
+        <input type="text" name="input" placeholder="Enter input value 3">
+        <input type="text" name="input" placeholder="Enter input value 1">
+        <input type="text" name="input" placeholder="Enter input value 2">
+        <input type="text" name="input" placeholder="Enter input value 3">
+        <!-- Add more input fields as needed -->
+        <button type="submit">Predict</button>
+    </form>
+    <h2 id="result"></h2>
+    
+    <script>
+        document.getElementById('predictForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Collect all input values
+            const inputs = Array.from(document.querySelectorAll('input[name="input"]')).map(input => input.value);
+            console.log(inputs)
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ input: inputs })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerText = 'Prediction: ' + data.prediction;
+            });
+        });
+    </script>
+</body>
+</html>
