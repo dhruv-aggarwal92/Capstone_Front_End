@@ -60,7 +60,7 @@ app.post('/predict', async (req, res) => {
     // console.log("qwertyuio");
     try {
         // console.log("123");
-        const response = await axios.post('http://127.0.0.1:5000/predict4', {
+        const response = await axios.post('https://pcos-lol-2.onrender.com/predict4', {
             input: req.body.input
         });
 

@@ -1,45 +1,15 @@
 # PREDICTION OF IMAGE MODEL
 from flask import Flask, request, jsonify
-from PIL import Image
-import torch
-import torch
-import torchvision
-import torch.nn as nn
 import numpy as np
 
-
-device = "cpu"
-pretrained_vit_weights = torchvision.models.ViT_B_16_Weights.DEFAULT 
-pretrained_vit = torchvision.models.vit_b_16(weights=pretrained_vit_weights).to(device)
-class_names = ['healthy', 'infected']
-pretrained_vit.heads = nn.Linear(in_features=768, out_features=len(class_names)).to(device)
-pretrained_vit.load_state_dict(torch.load('pretrained_vit_model2.pth'))
-pretrained_vit.eval()
 app = Flask(__name__)
-from going_modular.going_modular.predictions import pred_and_plot_image
-def preprocess_image(image):
-    image = image.resize((224, 224)) 
-    image = torch.tensor(image).unsqueeze(0)
-    return image
-@app.route( '/predict2', methods=['POST'])
-def predict(): 
-    if 'file' not in request.files:
-        return jsonify({'error': 'No file part in the request'}), 400
-    file = request.files['file']
-    print(file.stream)
-    print(type(file.stream))
-    a =  pred_and_plot_image(model=pretrained_vit,
-                    image_path=file.stream,
-                    class_names=class_names)
-    return jsonify({'prediction': a})
 
 
-# PREDICTION OF TABULAR MODEL
 from flask import Flask, request, jsonify
 import pickle
 import joblib
 from sklearn.svm import SVC
-
+import os
 # model2 = SVC(probability=True)
 # Train the model and save it
 # joblib.dump(model2, 'svc_model.pkl')
@@ -100,6 +70,6 @@ def predict4():
     
     return jsonify({'prediction': s})
     
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=os.getenv("PORT", 5000))
 
